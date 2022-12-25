@@ -1,7 +1,9 @@
 ﻿namespace CryptographyAlgorithmsBenchmarks
 {
     [BenchmarkDotNet.Attributes.MemoryDiagnoser]
-    public class EncryptionBenchmark
+    [BenchmarkDotNet.Attributes.RankColumn(BenchmarkDotNet.Mathematics.NumeralSystem.Arabic)]
+    [BenchmarkDotNet.Attributes.Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
+    public class EncryptionAlgorithms
     {
         [BenchmarkDotNet.Attributes.Benchmark]
         public byte[] AesEnctyptionAlgorithm()

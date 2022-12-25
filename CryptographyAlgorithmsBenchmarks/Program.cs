@@ -1,1 +1,2 @@
-﻿var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<CryptographyAlgorithmsBenchmarks.EncryptionBenchmark>();
+﻿//var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<CryptographyAlgorithmsBenchmarks.EncryptionAlgorithms>();
+var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<CryptographyAlgorithmsBenchmarks.HashAlgorithms>();
