@@ -15,14 +15,14 @@
             bytRawData = System.Security.Cryptography.RandomNumberGenerator.GetBytes(RawDataSize);
         }
 
-        [BenchmarkDotNet.Attributes.Arguments()]
+        [BenchmarkDotNet.Attributes.Benchmark]
         public void MD5HashAlgorithm() => System.Security.Cryptography.MD5.HashData(bytRawData);
 
         [BenchmarkDotNet.Attributes.Benchmark]
         public void SHA1HashAlgorithm() => System.Security.Cryptography.SHA1.HashData(bytRawData);
 
         [BenchmarkDotNet.Attributes.Benchmark]
-        public void SHA256HashAlgorithm() => System.Security.Cryptography.SHA256.HashData(bytRawData);
+        public void SHA256HashAlgorithm() => System.Security.Cryptography.SHA256.HashData(bytRawData);\
 
         [BenchmarkDotNet.Attributes.Benchmark]
         public void SHA384HashAlgorithm() => System.Security.Cryptography.SHA384.HashData(bytRawData);
