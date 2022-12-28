@@ -1,1 +1,1 @@
-﻿var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<GeneralAlgorithmsBenchmarks.StringConcatenationAlgorithmsBenchmark>();
+﻿var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<GeneralAlgorithmsBenchmarks.WritingFileBenchmark>();

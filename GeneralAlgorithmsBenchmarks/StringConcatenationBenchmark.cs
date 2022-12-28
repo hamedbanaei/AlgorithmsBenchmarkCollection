@@ -3,11 +3,11 @@
     [BenchmarkDotNet.Attributes.MemoryDiagnoser]
     [BenchmarkDotNet.Attributes.RankColumn(BenchmarkDotNet.Mathematics.NumeralSystem.Arabic)]
     [BenchmarkDotNet.Attributes.Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
-    public class StringConcatenationAlgorithmsBenchmark
+    public class StringConcatenationBenchmark
     {
         string[] strList = null;
 
-        public StringConcatenationAlgorithmsBenchmark()
+        public StringConcatenationBenchmark()
         {
             strList = new string[26];
 
@@ -60,7 +60,7 @@
         [BenchmarkDotNet.Attributes.Benchmark]
         public System.IO.MemoryStream StreamWriter()
         {
-            string strResult = String.Empty;
+            string strResult = System.String.Empty;
 
             System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
             System.IO.StreamWriter oStreamWriter = new System.IO.StreamWriter(oMemoryStream);
@@ -71,7 +71,7 @@
             }
 
             oStreamWriter.Flush();
-            oMemoryStream.Seek(0, SeekOrigin.Begin);
+            oMemoryStream.Seek(0, System.IO.SeekOrigin.Begin);
 
             oMemoryStream.Flush();
 
@@ -84,7 +84,7 @@
             string strResult = string.Empty;
 
             System.IO.StringWriter oStringWriter =
-                new System.IO.StringWriter(); ;
+                new System.IO.StringWriter();
 
             foreach (string item in strList)
             {
