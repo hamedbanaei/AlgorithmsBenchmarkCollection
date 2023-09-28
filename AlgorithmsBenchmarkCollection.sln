@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyAlgorithmsBenchmarks", "CryptographyAlgorithmsBenchmarks\CryptographyAlgorithmsBenchmarks.csproj", "{6A405586-4214-405F-A616-F27B6EA12D02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralAlgorithmsBenchmarks", "GeneralAlgorithmsBenchmarks\GeneralAlgorithmsBenchmarks.csproj", "{4EFB334B-4AA2-4F65-B460-60F3A1EEFFB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralAlgorithmsBenchmarks", "GeneralAlgorithmsBenchmarks\GeneralAlgorithmsBenchmarks.csproj", "{4EFB334B-4AA2-4F65-B460-60F3A1EEFFB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCoreBenchmark", "EntityFrameworkCoreBenchmark\EntityFrameworkCoreBenchmark.csproj", "{B44893A6-FE89-47B5-810A-63C38FAEF3EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4EFB334B-4AA2-4F65-B460-60F3A1EEFFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EFB334B-4AA2-4F65-B460-60F3A1EEFFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EFB334B-4AA2-4F65-B460-60F3A1EEFFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
