@@ -6,10 +6,10 @@ public static class GlobalTestSetup
     {
         using var dbContext = new Model.DatabaseContext();
 
-        bool blnIsDbEmpty =
+        bool blnHasDatabaseFilledAlready =
             dbContext.Fathers.Any();
 
-        if (blnIsDbEmpty == false) return;
+        if (blnHasDatabaseFilledAlready) return;
 
         var fakeFatherGenerator =
             new Bogus.Faker<Model.Father>()
@@ -37,7 +37,7 @@ public static class GlobalTestSetup
             dbContext.Fathers.Add(father);
             dbContext.SaveChanges();
 
-            int intChildrenCount = random.Next(0, 10);
+            int intChildrenCount = random.Next(0, 11);
 
             Model.Child child = null;
             for (int indexChildren = 0; indexChildren < intChildrenCount; indexChildren++)
