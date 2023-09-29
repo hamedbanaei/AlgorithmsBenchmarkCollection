@@ -14,10 +14,5 @@ internal sealed class ChildConfiguration : object, Microsoft
             .Property(current => current.Name)
             .IsUnicode(unicode: true)
             ;
-
-        builder
-            .HasIndex(current => new { current.BirthDate })
-            .IsUnique(unique: false)
-            ;
     }
 }

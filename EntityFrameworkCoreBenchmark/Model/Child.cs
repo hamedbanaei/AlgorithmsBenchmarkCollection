@@ -2,17 +2,9 @@
 
 public class Child : System.Object
 {
-    public Child(System.Guid parrentId, string name, System.DateTime birthDate)
-    {
-        Id = Guid.NewGuid();
+    public Child() { }
 
-        Name = name;
-        ParrentId = parrentId;
-        BirthDate = birthDate;
-    }
-
-    [System.ComponentModel.DataAnnotations.Key]
-    public Guid Id { get; set; }
+    public long Id { get; set; }
 
     [System.ComponentModel.DataAnnotations.Required]
     [System.ComponentModel.DataAnnotations.MinLength(3)]
@@ -20,13 +12,9 @@ public class Child : System.Object
     public string Name { get; set; }
 
     [System.ComponentModel.DataAnnotations.Required]
-    [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None)]
-    public DateTime BirthDate { get; set; }
-
-    [System.ComponentModel.DataAnnotations.Required]
-    public System.Guid ParrentId { get; set; }
+    public long FatherId { get; set; }
 
 
     [System.ComponentModel.DataAnnotations.Required]
-    public virtual Couple? Parrent { get; set; }
+    public virtual Father? Father { get; set; }
 }

@@ -1,6 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using (var dbContext = new EntityFrameworkCoreBenchmark.DatabaseContext())
-{
-}
-
+﻿//var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<Benchmarks.TraditionalUpdateVsExecuteUpdate>();
+Benchmarks.GlobalTestSetup.FillDatabaseWithFakeTestData(fatherCount: 1_000);
