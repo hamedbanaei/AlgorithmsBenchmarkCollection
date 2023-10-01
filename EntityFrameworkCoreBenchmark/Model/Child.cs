@@ -17,4 +17,12 @@ public class Child : System.Object
 
     [System.ComponentModel.DataAnnotations.Required]
     public virtual Father? Father { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Required]
+    [System.ComponentModel.DataAnnotations.MaxLength(100)]
+    public string Avatar { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Required]
+    [System.ComponentModel.DataAnnotations.MaxLength(100)]
+    public string Description { get; set; }
 }

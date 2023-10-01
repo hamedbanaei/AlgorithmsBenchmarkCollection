@@ -26,7 +26,9 @@ public static class GlobalTestSetup
 
         var fakeChildrenGenerator =
             new Bogus.Faker<Model.Child>()
-            .RuleFor(x => x.Name, y => y.Person.FullName)
+            .RuleFor(x => x.Name, y => y.Person.FirstName)
+            .RuleFor(x => x.Avatar, y => y.Person.Avatar)
+            .RuleFor(x => x.Description, y => y.Person.Random.Words(3))
             ;
 
         var random = new System.Random();
