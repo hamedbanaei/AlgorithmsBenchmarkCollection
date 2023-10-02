@@ -23,6 +23,6 @@ public class Child : System.Object
     public string Avatar { get; set; }
 
     [System.ComponentModel.DataAnnotations.Required]
-    [System.ComponentModel.DataAnnotations.MaxLength(100)]
+    [System.ComponentModel.DataAnnotations.MaxLength(1000)]
     public string Description { get; set; }
 }

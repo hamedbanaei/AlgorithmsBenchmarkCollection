@@ -1,15 +1,23 @@
-﻿namespace Benchmarks;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Benchmarks;
 
 public static class GlobalTestSetup
 {
-    public static void FillDatabaseWithFakeTestData(int fatherCount)
+    public static void FillDatabaseWithFakeTestData(int fatherCount, bool ignoreCheckIfDatabaseHasData)
     {
-        using var dbContext = new Model.DatabaseContext();
+        var start = System.DateTime.Now;
 
-        bool blnHasDatabaseFilledAlready =
-            dbContext.Fathers.Any();
+        if (ignoreCheckIfDatabaseHasData == false)
+        {
+            using var dbContext = new Model.DatabaseContext();
 
-        if (blnHasDatabaseFilledAlready) return;
+            bool blnHasDatabaseFilledAlready = false;
+            blnHasDatabaseFilledAlready =
+                dbContext.Fathers.Any();
+
+            if (blnHasDatabaseFilledAlready) return;
+        }
 
         var fakeFatherGenerator =
             new Bogus.Faker<Model.Father>()
@@ -35,11 +43,13 @@ public static class GlobalTestSetup
 
         for (int indexFather = 0; indexFather < fatherCount; indexFather++)
         {
+            using var dbContext = new Model.DatabaseContext();
+
             var father = fakeFatherGenerator.Generate();
             dbContext.Fathers.Add(father);
             dbContext.SaveChanges();
 
-            int intChildrenCount = random.Next(0, 11);
+            int intChildrenCount = random.Next(0, 5);
 
             Model.Child child = null;
             for (int indexChildren = 0; indexChildren < intChildrenCount; indexChildren++)
@@ -51,5 +61,13 @@ public static class GlobalTestSetup
 
             dbContext.SaveChanges();
         }
+
+        var end = System.DateTime.Now;
+
+        var elapsedTime = end - start;
+
+        var outPut = $"ElapsedTime: {elapsedTime.Hours}:{elapsedTime.Minutes}:{elapsedTime.Seconds}.{elapsedTime.Milliseconds}";
+
+        System.Diagnostics.Trace.WriteLine(outPut);
     }
 }
