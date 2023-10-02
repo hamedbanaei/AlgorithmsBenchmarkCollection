@@ -66,7 +66,7 @@ internal sealed class FatherConfiguration : object, Microsoft
             .IsRequired(required: true)
             .HasForeignKey(other => other.FatherId)
             .OnDelete(deleteBehavior:
-                Microsoft.EntityFrameworkCore.DeleteBehavior.Restrict)
+                Microsoft.EntityFrameworkCore.DeleteBehavior.Cascade)
             ;
     }
 }

@@ -1,1 +1,2 @@
 ﻿var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<Benchmarks.TraditionalUpdateVsExecuteUpdate>();
+//var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<Benchmarks.TraditionalDeleteVsExecuteDelete>();
