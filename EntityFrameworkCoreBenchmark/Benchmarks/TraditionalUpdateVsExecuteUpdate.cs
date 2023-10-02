@@ -13,7 +13,8 @@ public class TraditionalUpdateVsExecuteUpdate
     [BenchmarkDotNet.Attributes.GlobalSetup]
     public void GlobalSetup()
     {
-        Benchmarks.GlobalTestSetup.FillDatabaseWithFakeTestData(fatherCount: 2_000_000, false);
+        Benchmarks.GlobalTestSetup.FillDatabaseWithFakeTestData
+            (testFatherCount: 2_000_000, ignoreCheckIfDatabaseHasData: false);
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]

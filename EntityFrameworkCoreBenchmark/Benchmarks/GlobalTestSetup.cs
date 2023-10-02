@@ -4,19 +4,18 @@ namespace Benchmarks;
 
 public static class GlobalTestSetup
 {
-    public static void FillDatabaseWithFakeTestData(int fatherCount, bool ignoreCheckIfDatabaseHasData)
+    public static void FillDatabaseWithFakeTestData(int testFatherCount, bool ignoreCheckIfDatabaseHasData)
     {
         var start = System.DateTime.Now;
+        int intDbFathersCount = 0;
 
         if (ignoreCheckIfDatabaseHasData == false)
         {
             using var dbContext = new Model.DatabaseContext();
 
-            bool blnHasDatabaseFilledAlready = false;
-            blnHasDatabaseFilledAlready =
-                dbContext.Fathers.Any();
+            intDbFathersCount = dbContext.Fathers.Count();
 
-            if (blnHasDatabaseFilledAlready) return;
+            if (testFatherCount == intDbFathersCount) return;
         }
 
         var fakeFatherGenerator =
@@ -41,7 +40,7 @@ public static class GlobalTestSetup
 
         var random = new System.Random();
 
-        for (int indexFather = 0; indexFather < fatherCount; indexFather++)
+        for (int indexFather = 0; indexFather < testFatherCount - intDbFathersCount; indexFather++)
         {
             using var dbContext = new Model.DatabaseContext();
 
@@ -67,7 +66,7 @@ public static class GlobalTestSetup
         var elapsedTime = end - start;
 
         var outPut = $"ElapsedTime: {elapsedTime.Hours}:{elapsedTime.Minutes}:{elapsedTime.Seconds}.{elapsedTime.Milliseconds}";
-        
+
         System.Diagnostics.Trace.WriteLine("");
         System.Diagnostics.Trace.WriteLine("");
         System.Diagnostics.Trace.WriteLine(outPut);
