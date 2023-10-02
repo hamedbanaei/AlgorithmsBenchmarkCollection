@@ -67,7 +67,11 @@ public static class GlobalTestSetup
         var elapsedTime = end - start;
 
         var outPut = $"ElapsedTime: {elapsedTime.Hours}:{elapsedTime.Minutes}:{elapsedTime.Seconds}.{elapsedTime.Milliseconds}";
-
+        
+        System.Diagnostics.Trace.WriteLine("");
+        System.Diagnostics.Trace.WriteLine("");
         System.Diagnostics.Trace.WriteLine(outPut);
+        System.Diagnostics.Trace.WriteLine("");
+        System.Diagnostics.Trace.WriteLine("");
     }
 }
