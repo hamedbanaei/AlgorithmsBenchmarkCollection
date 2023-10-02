@@ -22,7 +22,7 @@ public class WhereAndSelectPriority
     {
         using var dbContext = new Model.DatabaseContext();
 
-        var list = dbContext.Children.Where(c => c.Name.Contains("ham")).Select(c => c);
+        var list = dbContext.Children.Where(c => c.Name.Contains("ham")).Select(c => c).ToList();
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]
@@ -30,6 +30,6 @@ public class WhereAndSelectPriority
     {
         using var dbContext = new Model.DatabaseContext();
 
-        var list = dbContext.Children.Select(c => c).Where(c => c.Name.Contains("ham"));
+        var list = dbContext.Children.Select(c => c).Where(c => c.Name.Contains("ham")).ToList();
     }
 }
