@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyAlgorithmsBench
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralAlgorithmsBenchmarks", "GeneralAlgorithmsBenchmarks\GeneralAlgorithmsBenchmarks.csproj", "{4EFB334B-4AA2-4F65-B460-60F3A1EEFFB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCoreBenchmark", "EntityFrameworkCoreBenchmark\EntityFrameworkCoreBenchmark.csproj", "{B44893A6-FE89-47B5-810A-63C38FAEF3EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCoreBenchmark", "EntityFrameworkCoreBenchmark\EntityFrameworkCoreBenchmark.csproj", "{B44893A6-FE89-47B5-810A-63C38FAEF3EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
