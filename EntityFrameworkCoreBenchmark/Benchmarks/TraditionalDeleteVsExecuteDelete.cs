@@ -10,8 +10,8 @@ public class TraditionalDeleteVsExecuteDelete
         (1_000, 2_000, 5_000, 10_000, 20_000, 50_000, 100_000, 200_000, 500_000, 1_000_000)]
     public int Rows { get; set; }
 
-    [BenchmarkDotNet.Attributes.GlobalSetup]
-    public void GlobalSetup()
+    [BenchmarkDotNet.Attributes.IterationSetup]
+    public void IterationSetup()
     {
         Benchmarks.GlobalAndIterationSetup.FillDatabaseWithFakeTestData
             (testFatherCount: 2_000_000, ignoreCheckIfDatabaseHasData: false);
