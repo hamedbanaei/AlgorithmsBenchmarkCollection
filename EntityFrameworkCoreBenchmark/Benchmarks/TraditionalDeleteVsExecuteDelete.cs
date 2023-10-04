@@ -13,7 +13,7 @@ public class TraditionalDeleteVsExecuteDelete
     [BenchmarkDotNet.Attributes.GlobalSetup]
     public void GlobalSetup()
     {
-        Benchmarks.GlobalTestSetup.FillDatabaseWithFakeTestData
+        Benchmarks.GlobalAndIterationSetup.FillDatabaseWithFakeTestData
             (testFatherCount: 2_000_000, ignoreCheckIfDatabaseHasData: false);
     }
 
