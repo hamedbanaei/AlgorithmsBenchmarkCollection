@@ -22,9 +22,9 @@ public class TraditionalUpdateVsExecuteUpdate
     {
         using var dbContext = new Model.DatabaseContext();
 
-        var recordsToUpdate = dbContext.Fathers.Take(Rows).ToList();
+        var records = dbContext.Fathers.Take(Rows).ToList();
 
-        foreach (var record in recordsToUpdate)
+        foreach (var record in records)
         {
             record.Name = "new name1";
         }
