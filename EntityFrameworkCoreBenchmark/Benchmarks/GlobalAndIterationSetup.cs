@@ -2,11 +2,10 @@
 
 namespace Benchmarks;
 
-public static class GlobalTestSetup
+public static class GlobalAndIterationSetup
 {
     public static void FillDatabaseWithFakeTestData(int testFatherCount, bool ignoreCheckIfDatabaseHasData)
     {
-        var start = System.DateTime.Now;
         int intDbFathersCount = 0;
 
         if (ignoreCheckIfDatabaseHasData == false)
@@ -61,17 +60,5 @@ public static class GlobalTestSetup
 
             dbContext.SaveChanges();
         }
-
-        var end = System.DateTime.Now;
-
-        var elapsedTime = end - start;
-
-        var outPut = $"ElapsedTime: {elapsedTime.Hours}:{elapsedTime.Minutes}:{elapsedTime.Seconds}.{elapsedTime.Milliseconds}";
-
-        System.Diagnostics.Trace.WriteLine("");
-        System.Diagnostics.Trace.WriteLine("");
-        System.Diagnostics.Trace.WriteLine(outPut);
-        System.Diagnostics.Trace.WriteLine("");
-        System.Diagnostics.Trace.WriteLine("");
     }
 }

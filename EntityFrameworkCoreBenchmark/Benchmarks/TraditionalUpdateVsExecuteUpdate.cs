@@ -13,7 +13,7 @@ public class TraditionalUpdateVsExecuteUpdate
     [BenchmarkDotNet.Attributes.GlobalSetup]
     public void GlobalSetup()
     {
-        Benchmarks.GlobalTestSetup.FillDatabaseWithFakeTestData
+        Benchmarks.GlobalAndIterationSetup.FillDatabaseWithFakeTestData
             (testFatherCount: 2_000_000, ignoreCheckIfDatabaseHasData: false);
     }
 
@@ -22,9 +22,9 @@ public class TraditionalUpdateVsExecuteUpdate
     {
         using var dbContext = new Model.DatabaseContext();
 
-        var recordsToUpdate = dbContext.Fathers.Take(Rows).ToList();
+        var records = dbContext.Fathers.Take(Rows).ToList();
 
-        foreach (var record in recordsToUpdate)
+        foreach (var record in records)
         {
             record.Name = "new name1";
         }
