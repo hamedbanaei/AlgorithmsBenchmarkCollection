@@ -15,9 +15,6 @@ public class SkipTakeVsTakeRange
     {
         Benchmarks.GlobalAndIterationSetup.FillDatabaseWithFakeTestData
             (testFatherCount: 2_000_000, ignoreCheckIfDatabaseHasData: false);
-
-        using var dbContext = new Model.DatabaseContext();
-        Children = dbContext.Children.Take(2_100_000).ToList();
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]

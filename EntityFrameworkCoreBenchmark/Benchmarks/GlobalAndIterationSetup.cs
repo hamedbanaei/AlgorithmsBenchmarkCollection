@@ -10,9 +10,9 @@ public static class GlobalAndIterationSetup
 
         if (ignoreCheckIfDatabaseHasData == false)
         {
-            using var dbContext = new Model.DatabaseContext();
+            using var InitialCheckDbContext = new Model.DatabaseContext();
 
-            intDbFathersCount = dbContext.Fathers.Count();
+            intDbFathersCount = InitialCheckDbContext.Fathers.Count();
 
             if (testFatherCount == intDbFathersCount) return;
         }
@@ -39,8 +39,8 @@ public static class GlobalAndIterationSetup
             ;
 
         var random = new System.Random();
-
-        for (int indexFather = 0; indexFather < testFatherCount - intDbFathersCount; indexFather++)
+        int intNeededFatherRecords = testFatherCount - intDbFathersCount;
+        for (int indexFather = 0; indexFather < intNeededFatherRecords; indexFather++)
         {
             using var dbContext = new Model.DatabaseContext();
 
@@ -59,6 +59,17 @@ public static class GlobalAndIterationSetup
             }
 
             dbContext.SaveChanges();
+
+            if (indexFather % 1000 == 0)
+            {
+                System.Console.WriteLine($"{System.DateTime.Now.ToString("HH:mm:ss.ms")}\t 1000 Father Records Inserted!\t\tTotal Father Records Untill Now: {dbContext.Fathers.Count().ToString("#,##0")}");
+            }
         }
+
+        using var reportResultContext = new Model.DatabaseContext();
+        System.Console.WriteLine($"All Needed Father Records ({intNeededFatherRecords.ToString("#,##0")}) Inserted at {System.DateTime.Now.ToString("HH: mm:ss.ms")}!");
+        System.Console.WriteLine("Current Test Database Avaiable Records:");
+        System.Console.WriteLine($"Father Records: {reportResultContext.Fathers.Count().ToString("#,##0")}");
+        System.Console.WriteLine($"Father Records: {reportResultContext.Children.Count().ToString("#,##0")}");
     }
 }

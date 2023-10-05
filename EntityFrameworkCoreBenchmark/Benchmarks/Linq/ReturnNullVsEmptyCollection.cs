@@ -10,6 +10,13 @@ namespace Benchmarks.Linq;
 [BenchmarkDotNet.Attributes.GroupBenchmarksBy(BenchmarkDotNet.Configs.BenchmarkLogicalGroupRule.ByParams)]
 public class ReturnNullVsEmptyCollection
 {
+    [BenchmarkDotNet.Attributes.GlobalSetup]
+    public void GlobalSetup()
+    {
+        Benchmarks.GlobalAndIterationSetup.FillDatabaseWithFakeTestData
+            (testFatherCount: 2_000_000, ignoreCheckIfDatabaseHasData: false);
+    }
+
     [BenchmarkDotNet.Attributes.Benchmark]
     public void ReturnNull()
     {
