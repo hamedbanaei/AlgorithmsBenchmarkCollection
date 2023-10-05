@@ -17,6 +17,11 @@ public class Father : object
     public string Name { get; set; }
 
     [System.ComponentModel.DataAnnotations.Required]
+    [System.ComponentModel.DataAnnotations.MinLength(3)]
+    [System.ComponentModel.DataAnnotations.MaxLength(100)]
+    public string NickName { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Required]
     [System.ComponentModel.DataAnnotations.MaxLength(100)]
     public string Phone { get; set; }
 

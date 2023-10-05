@@ -21,6 +21,7 @@ public static class GlobalTestSetup
         var fakeFatherGenerator =
             new Bogus.Faker<Model.Father>()
             .RuleFor(x => x.Name, y => y.Person.FullName)
+            .RuleFor(x => x.NickName, y => y.Person.FirstName)
             .RuleFor(x => x.Phone, y => y.Person.Phone)
             .RuleFor(x => x.Email, y => y.Person.Email)
             .RuleFor(x => x.Website, y => y.Person.Website)
