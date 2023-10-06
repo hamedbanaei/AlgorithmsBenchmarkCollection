@@ -62,7 +62,7 @@ public static class GlobalAndIterationSetup
 
             if ((indexFather + 1) % 1000 == 0)
             {
-                System.Console.WriteLine($"{System.DateTime.Now.ToString("HH:mm:ss.ms")}\t 1000 Father Records Inserted!\t\tTotal Father Records Untill Now: {dbContext.Fathers.Count().ToString("#,##0")}");
+                System.Console.WriteLine($"{System.DateTime.Now.ToString("HH:mm:ss.ms")}\t 1000 Father Records Inserted!\tTotal Father Records Untill Now: {dbContext.Fathers.Count().ToString("#,##0")}");
             }
         }
 

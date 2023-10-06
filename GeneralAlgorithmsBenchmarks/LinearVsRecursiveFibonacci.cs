@@ -5,7 +5,7 @@
 public class LinearVsRecursiveFibonacci
 {
     [BenchmarkDotNet.Attributes.Params
-        (1_000, 2_000, 5_000, 10_000)]
+        (1, 2, 5, 10, 20, 50, 100, 200, 500, 1_000)]
     public ulong Sequence { get; set; }
 
     [BenchmarkDotNet.Attributes.Benchmark]
