@@ -14,7 +14,7 @@ public static class GlobalAndIterationSetup
 
             intDbFathersCount = InitialCheckDbContext.Fathers.Count();
 
-            if (testFatherCount == intDbFathersCount) return;
+            if (intDbFathersCount >= testFatherCount) return;
         }
 
         var fakeFatherGenerator =
