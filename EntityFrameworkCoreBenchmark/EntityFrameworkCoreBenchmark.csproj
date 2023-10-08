@@ -17,4 +17,8 @@
     <Folder Include="Documents\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MrTechLead\MrTechLead.csproj" />
+  </ItemGroup>
+
 </Project>
