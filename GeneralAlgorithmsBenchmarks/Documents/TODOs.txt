@@ -1,0 +1,1 @@
+﻿Talk about: Task Parallel Library(TPL) => Parallel.ForEach
