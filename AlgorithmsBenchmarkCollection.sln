@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralAlgorithmsBenchmarks
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCoreBenchmark", "EntityFrameworkCoreBenchmark\EntityFrameworkCoreBenchmark.csproj", "{B44893A6-FE89-47B5-810A-63C38FAEF3EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MrTechLead", "MrTechLead\MrTechLead.csproj", "{0C1004D4-8B3D-41D2-B234-C95D9DCA635E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44893A6-FE89-47B5-810A-63C38FAEF3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C1004D4-8B3D-41D2-B234-C95D9DCA635E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C1004D4-8B3D-41D2-B234-C95D9DCA635E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C1004D4-8B3D-41D2-B234-C95D9DCA635E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1004D4-8B3D-41D2-B234-C95D9DCA635E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

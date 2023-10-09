@@ -62,14 +62,14 @@ public static class GlobalAndIterationSetup
 
             if ((indexFather + 1) % 1000 == 0)
             {
-                System.Console.WriteLine($"{System.DateTime.Now.ToString("HH:mm:ss.ms")}\t 1000 Father Records Inserted!\tTotal Father Records Untill Now: {dbContext.Fathers.Count().ToString("#,##0")}");
+                MrTechLead.Console.WriteLine($"{System.DateTime.Now.ToString("HH:mm:ss.ms")}\t 1000 Father Records Inserted!\tTotal Father Records Untill Now: {dbContext.Fathers.Count().ToString("#,##0")}", System.ConsoleColor.Cyan);
             }
         }
 
         using var reportResultContext = new Model.DatabaseContext();
-        System.Console.WriteLine($"All Needed Father Records ({intNeededFatherRecords.ToString("#,##0")}) Inserted at {System.DateTime.Now.ToString("HH: mm:ss.ms")}!");
-        System.Console.WriteLine("Current Test Database Avaiable Records:");
-        System.Console.WriteLine($"Father Records: {reportResultContext.Fathers.Count().ToString("#,##0")}");
-        System.Console.WriteLine($"Father Records: {reportResultContext.Children.Count().ToString("#,##0")}");
+        MrTechLead.Console.WriteLine($"All Needed Father Records ({intNeededFatherRecords.ToString("#,##0")}) Inserted at {System.DateTime.Now.ToString("HH: mm:ss.ms")}!", ConsoleColor.DarkGreen);
+        MrTechLead.Console.WriteLine("Current Test Database Avaiable Records:", ConsoleColor.Green);
+        MrTechLead.Console.WriteLine($"Total Father Records: {reportResultContext.Fathers.Count().ToString("#,##0")}", ConsoleColor.DarkGreen);
+        MrTechLead.Console.WriteLine($"Total Children Records: {reportResultContext.Children.Count().ToString("#,##0")}", ConsoleColor.DarkGreen);
     }
 }
