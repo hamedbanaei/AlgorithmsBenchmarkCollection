@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace Benchmarks.Linq;
 
 [BenchmarkDotNet.Attributes.MemoryDiagnoser]
 [BenchmarkDotNet.Attributes.GroupBenchmarksBy(BenchmarkDotNet.Configs.BenchmarkLogicalGroupRule.ByParams)]
+[BenchmarkDotNet.Attributes.Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 public class ImprovePerformanceWithAsNoTracking
 {
     [BenchmarkDotNet.Attributes.Params
@@ -29,5 +31,12 @@ public class ImprovePerformanceWithAsNoTracking
     {
         using var dbContext = new Model.DatabaseContext();
         return dbContext.Children.Take(Rows).AsNoTracking().ToList();
+    }
+
+    [BenchmarkDotNet.Attributes.Benchmark]
+    public List<Model.Child> FetchDataWithWrongAsNoTrackingUsage()
+    {
+        using var dbContext = new Model.DatabaseContext();
+        return dbContext.Children.AsNoTracking().Take(Rows).ToList();
     }
 }
