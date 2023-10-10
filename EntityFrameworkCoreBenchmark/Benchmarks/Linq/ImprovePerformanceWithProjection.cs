@@ -8,7 +8,7 @@ namespace Benchmarks.Linq;
 public class ImprovePerformanceWithProjection
 {
     [BenchmarkDotNet.Attributes.Params
-        (1_000, 2_000, 5_000, 10_000)]
+        (1_000, 2_000, 5_000, 10_000, 20_000, 50_000, 100_000, 200_000, 500_000, 1_000_000)]
     public int Rows { get; set; }
 
     [BenchmarkDotNet.Attributes.GlobalSetup]
@@ -46,4 +46,3 @@ public class ImprovePerformanceWithProjection
             .ToList();
     }
 }
-
