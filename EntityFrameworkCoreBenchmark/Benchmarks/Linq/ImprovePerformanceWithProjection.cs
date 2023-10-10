@@ -5,10 +5,10 @@ namespace Benchmarks.Linq;
 [BenchmarkDotNet.Attributes.MemoryDiagnoser]
 [BenchmarkDotNet.Attributes.GroupBenchmarksBy(BenchmarkDotNet.Configs.BenchmarkLogicalGroupRule.ByParams)]
 [BenchmarkDotNet.Attributes.Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
-public class ImprovePerformanceWithAsNoTracking
+public class ImprovePerformanceWithProjection
 {
     [BenchmarkDotNet.Attributes.Params
-        (1_000, 2_000, 5_000, 10_000, 20_000, 50_000, 100_000, 200_000, 500_000, 1_000_000)]
+        (1_000, 2_000, 5_000, 10_000)]
     public int Rows { get; set; }
 
     [BenchmarkDotNet.Attributes.GlobalSetup]
@@ -19,16 +19,31 @@ public class ImprovePerformanceWithAsNoTracking
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]
-    public List<Model.Child> FetchDataInNormalWay()
+    public void FetchCompleteEntity()
     {
         using var dbContext = new Model.DatabaseContext();
-        return dbContext.Children.Take(Rows).ToList();
+        List<Model.Father> results = 
+            dbContext.Fathers
+            .Take(Rows)
+            .AsNoTracking()
+            .ToList();
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]
-    public List<Model.Child> FetchDataWithAsNoTracking()
+    public void FetchWithProjection()
     {
         using var dbContext = new Model.DatabaseContext();
-        return dbContext.Children.Take(Rows).AsNoTracking().ToList();
+        List<Model.FatherViewModel> results = 
+            dbContext.Fathers
+            .Take(Rows)
+            .AsNoTracking()
+            .Select(f =>
+                new Model.FatherViewModel
+                {
+                    Nikename = f.NickName,
+                    ChildrenCount = f.Children.Count
+                })
+            .ToList();
     }
 }
+
