@@ -32,11 +32,4 @@ public class ImprovePerformanceWithAsNoTracking
         using var dbContext = new Model.DatabaseContext();
         return dbContext.Children.Take(Rows).AsNoTracking().ToList();
     }
-
-    [BenchmarkDotNet.Attributes.Benchmark]
-    public List<Model.Child> FetchDataWithWrongAsNoTrackingUsage()
-    {
-        using var dbContext = new Model.DatabaseContext();
-        return dbContext.Children.AsNoTracking().Take(Rows).ToList();
-    }
 }
