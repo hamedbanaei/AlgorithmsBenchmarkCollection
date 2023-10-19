@@ -40,7 +40,7 @@ public class ImprovePerformanceWithProjection
             .Select(f =>
                 new Model.FatherViewModel
                 {
-                    Nikename = f.NickName,
+                    Nickname = f.NickName,
                     ChildrenCount = f.Children.Count
                 })
             .ToList();
