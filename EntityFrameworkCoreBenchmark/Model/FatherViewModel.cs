@@ -2,7 +2,7 @@
 
 public class FatherViewModel
 {
-    public string Nikename { get; set; }
+    public string Nickname { get; set; }
 
     public int ChildrenCount { get; set; }
 }
