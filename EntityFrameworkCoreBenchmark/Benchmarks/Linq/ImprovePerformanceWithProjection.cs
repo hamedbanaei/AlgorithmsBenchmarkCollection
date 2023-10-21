@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Benchmarks;
+namespace Benchmarks.Linq;
 
 [BenchmarkDotNet.Attributes.MemoryDiagnoser]
 [BenchmarkDotNet.Attributes.GroupBenchmarksBy(BenchmarkDotNet.Configs.BenchmarkLogicalGroupRule.ByParams)]
-public class WhereAndSelectPriority
+[BenchmarkDotNet.Attributes.Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
+public class ImprovePerformanceWithProjection
 {
     [BenchmarkDotNet.Attributes.Params
         (1_000, 2_000, 5_000, 10_000, 20_000, 50_000, 100_000, 200_000, 500_000, 1_000_000)]
@@ -18,18 +19,30 @@ public class WhereAndSelectPriority
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]
-    public void WhereThenSelect()
+    public void FetchCompleteEntity()
     {
         using var dbContext = new Model.DatabaseContext();
-
-        var list = dbContext.Children.Where(c => c.Name.Contains("ham")).Select(c => c).ToList();
+        List<Model.Father> results = 
+            dbContext.Fathers
+            .Take(Rows)
+            .AsNoTracking()
+            .ToList();
     }
 
     [BenchmarkDotNet.Attributes.Benchmark]
-    public void SelectThenWhere()
+    public void FetchWithProjection()
     {
         using var dbContext = new Model.DatabaseContext();
-
-        var list = dbContext.Children.Select(c => c).Where(c => c.Name.Contains("ham")).ToList();
+        List<Model.FatherViewModel> results = 
+            dbContext.Fathers
+            .Take(Rows)
+            .AsNoTracking()
+            .Select(f =>
+                new Model.FatherViewModel
+                {
+                    Nickname = f.NickName,
+                    ChildrenCount = f.Children.Count
+                })
+            .ToList();
     }
 }
