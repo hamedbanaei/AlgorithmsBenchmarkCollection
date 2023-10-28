@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.9" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MrTechLead\MrTechLead.csproj" />
   </ItemGroup>
 
 </Project>
